@@ -1,4 +1,5 @@
 'use client'
+import { useRouter } from 'next/navigation';
 import React, {useState, useEffect, useRef, useMemo} from 'react';
 
 export default function MyPage(){
@@ -6,6 +7,8 @@ export default function MyPage(){
     const inputRef = useRef(null);
     const [state, setState] = useState('chill');
     const [count, setCount] = useState(0);
+    const router = useRouter();
+    const nim = 2602175462;
     
     const randomized = ()=>{
         const randomIndex = Math.floor(Math.random() * myStateRightNow.length);
@@ -25,6 +28,10 @@ export default function MyPage(){
         return slowFunc(count);
     }, [count])
 
+    function goToDetails(){
+        router.push('2602175462/details');
+    }
+
 
     return(
         <div className='flex flex-col justify-center items-center min-h-screen min-w-screen'>
@@ -40,6 +47,8 @@ export default function MyPage(){
             <h2>useMemo</h2>
             <button onClick={()=> setCount(count + 1)}>useMemo (if you click this usememo effect will be little bit lag and that's okay)</button>
             <p>Usememo Effect: {doubleNumUseMemo}</p>
+            {/* <Link href='/details'>Go to details</Link> */}
+            <button onClick={() =>goToDetails()}>Go to details</button>
         </div>
     )
 }
