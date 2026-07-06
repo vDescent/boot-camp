@@ -30,11 +30,11 @@ export default function DetailsPage() {
 
     return(
         <div style={{display:'flex', flexDirection:'column', justifyContent:"center", alignItems:'center', padding:'2rem'}}>
-            <h2 style={{margin:'1rem', backgroundColor:'orange', padding:'16px', border:'solid 2px orange', borderRadius:'16px' }}>Random Fact For The Day: </h2>
-            <h3 style={{margin:'0', textAlign:'center'}}>{fact}</h3>
+            <h2 style={{margin:'1rem', backgroundColor:'orange', padding:'16px', border:'solid 2px orange', borderRadius:'16px', textAlign:'center'}}>Random Fact For The Day: </h2>
+            <h3 style={{margin:'0', textAlign:'center', maxWidth:'400px'}}>{fact}</h3>
             <p>Words total : {totalWords}</p>
-            <button onClick={() =>onclickFetch()} style={{margin:'16px', backgroundColor:'lime', padding:'8px', borderRadius:'8px', cursor:'pointer'}}>Generate more</button>
-            <p>You have been generating for {generateCount.current} times</p>
+            <button onClick={() =>onclickFetch()} style={{margin:'16px', backgroundColor:'lime', padding:'8px', borderRadius:'8px', cursor:'pointer' ,textAlign:'center'}}>Generate more</button>
+            <p style={{textAlign:'center'}}>You have been generating for {generateCount.current} times</p>
         </div>
     )
 }
