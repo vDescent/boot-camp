@@ -1,6 +1,6 @@
 // "use client"
 
-import DetailsPage from "../../../../views/test/DetailsPage"
+import DetailsPage from "../../../../views/2602175462/DetailsPage"
 import Layout from "./layout"
 
 export default function Details(){
