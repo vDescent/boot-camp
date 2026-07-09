@@ -32,6 +32,10 @@ export default function MyPage(){
         router.push('2602175462/details');
     }
 
+    function goTo9(){
+        router.push('assingment/09/2602175462');
+    }
+
 
     return(
         <div className='flex flex-col justify-center items-center min-h-screen min-w-screen'>
@@ -48,7 +52,10 @@ export default function MyPage(){
             <button onClick={()=> setCount(count + 1)}>useMemo (if you click this usememo effect will be little bit lag and that's okay)</button>
             <p>Usememo Effect: {doubleNumUseMemo}</p>
             {/* <Link href='/details'>Go to details</Link> */}
-            <button onClick={() =>goToDetails()}>Go to details</button>
+            <h2>Go to details (assingment 8)</h2>
+            <button onClick={() =>goToDetails()}>Go To Details</button>
+            <h2>Go Assignment 9</h2>
+            <button onClick={() => goTo9()}>Go To Assignment 9</button>
         </div>
     )
 }
