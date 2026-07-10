@@ -23,9 +23,14 @@ export default function PostsPage() {
   useEffect(() =>{
     async function loadPosts() {
       setLoading(true);
-      const data = await getPosts();
-      setGetDocsPosts(data);
-      setLoading(false);
+      try{
+        const data = await getPosts();
+        setGetDocsPosts(data);
+      } catch(err){
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
     }
 
     loadPosts();
@@ -43,6 +48,10 @@ export default function PostsPage() {
 
   if(loading){
     return <h1>Loading...</h1>
+  }
+
+  if(error){
+    return <h1>Error: {error}</h1>
   }
 
   return (
