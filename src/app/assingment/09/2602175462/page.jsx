@@ -41,7 +41,12 @@ export default function PostsPage() {
     const unsubscribe = firestoreOnSnapshot((data) =>{
       setOnSnapshotPosts(data);
       setLoading(false);
-    });
+    },
+    (error) =>{
+      setError(error);
+      setLoading(false);
+    }
+  );
 
     return () => unsubscribe();
   }, []);

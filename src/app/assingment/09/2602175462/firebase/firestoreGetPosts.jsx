@@ -2,6 +2,8 @@ import { collection, getDocs, doc, getdoc, snapshotEqual } from "firebase/firest
 import { db } from "./Initialize";
 
 export async function getPosts(){
+    // throw new Error("Error buatan")
+
     const snapshot = await getDocs(collection(db, "posts"));
 
     return snapshot.docs.map((doc)=> ({
