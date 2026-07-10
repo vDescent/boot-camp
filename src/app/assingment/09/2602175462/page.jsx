@@ -9,6 +9,8 @@ export default function PostsPage() {
   const [getDocsPosts, setGetDocsPosts] = useState([]);
   const [onSnapshotPosts, setOnSnapshotPosts] = useState([]);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const filteredPosts = onSnapshotPosts.filter((post) =>{
     if(search === ""){
@@ -20,26 +22,32 @@ export default function PostsPage() {
 
   useEffect(() =>{
     async function loadPosts() {
+      setLoading(true);
       const data = await getPosts();
       setGetDocsPosts(data);
+      setLoading(false);
     }
 
     loadPosts();
   }, []);
 
   useEffect(()=>{
+    setLoading(true);
     const unsubscribe = firestoreOnSnapshot((data) =>{
       setOnSnapshotPosts(data);
+      setLoading(false);
     });
 
     return () => unsubscribe();
   }, []);
 
+  if(loading){
+    return <h1>Loading...</h1>
+  }
+
   return (
     <div className='bg-amber-500 w-full h-full'>
       <h1>Posts Assignment 9</h1>
-
-
 
       <h2>GetDocs (Not realtime friendly, if data on firestore changed whether title or content, this will not change)</h2>
       {getDocsPosts.map((post) =>(
