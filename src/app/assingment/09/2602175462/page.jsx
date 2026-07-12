@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { getPosts } from './firebase/firestoreGetPosts'
 import { db } from './firebase/Initialize'
 import { firestoreOnSnapshot } from './firebase/firestoreOnSnapshot'
+import ErrorBoundary from './components/ErrorBoundary'
 
 export default function PostsPage() {
   const [getDocsPosts, setGetDocsPosts] = useState([]);
@@ -59,27 +60,31 @@ export default function PostsPage() {
     return <h1>Error: {error}</h1>
   }
 
+  
+
   return (
-    <div className='bg-amber-500 w-full h-full'>
-      <h1>Posts Assignment 9</h1>
+    <ErrorBoundary>
+      <div className='bg-amber-500 w-full h-full'>
+        <h1>Posts Assignment 9</h1>
 
-      <h2>GetDocs (Not realtime friendly, if data on firestore changed whether title or content, this will not change)</h2>
-      {getDocsPosts.map((post) =>(
-        <div key={post.id}>
-          <h3>{post.title}</h3>
-          <p>{post.content}</p>
-        </div>
-      ))}
+        <h2>GetDocs (Not realtime friendly, if data on firestore changed whether title or content, this will not change)</h2>
+        {getDocsPosts.map((post) =>(
+          <div key={post.id}>
+            <h3>{post.title}</h3>
+            <p>{post.content}</p>
+          </div>
+        ))}
 
-      <h1>Search</h1>
-      <input type="text" placeholder='ex: cheetah' value={search} onChange={(e)=> setSearch(e.target.value)}/>
-      <h2>onSnapshot (Realtime friendly, if data on firestore changed whether title or content, this will change)</h2>
-      {filteredPosts.map((post) =>(
-        <div key={post.id}>
-          <h3>{post.title}</h3>
-          <p>{post.content}</p>
-        </div>
-      ))}
-    </div>
+        <h1>Search</h1>
+        <input type="text" placeholder='ex: cheetah' value={search} onChange={(e)=> setSearch(e.target.value)}/>
+        <h2>onSnapshot (Realtime friendly, if data on firestore changed whether title or content, this will change)</h2>
+        {filteredPosts.map((post) =>(
+          <div key={post.id}>
+            <h3>{post.title}</h3>
+            <p>{post.content}</p>
+          </div>
+        ))}
+      </div>
+    </ErrorBoundary>
   )
 }
