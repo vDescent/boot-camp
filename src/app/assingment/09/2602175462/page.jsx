@@ -5,6 +5,7 @@ import { getPosts } from './firebase/firestoreGetPosts'
 import { db } from './firebase/Initialize'
 import { firestoreOnSnapshot } from './firebase/firestoreOnSnapshot'
 import ErrorBoundary from './components/ErrorBoundary'
+import FallbackUI from './components/FallbackUI'
 
 export default function PostsPage() {
   const [getDocsPosts, setGetDocsPosts] = useState([]);
@@ -57,7 +58,10 @@ export default function PostsPage() {
   }
 
   if(error){
-    return <h1>Error: {error}</h1>
+    // return <h1>Error: {error}</h1>
+    return(
+      <FallbackUI message={error} onRetry={()=> window.location.reload()}/>
+    )
   }
 
   
