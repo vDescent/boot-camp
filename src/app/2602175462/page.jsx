@@ -36,6 +36,10 @@ export default function MyPage(){
         router.push('assingment/09/2602175462');
     }
 
+    function goTo10(){
+        router.push('assingment/10/2602175462');
+    }
+
 
     return(
         <div className='flex flex-col justify-center items-center min-h-screen min-w-screen'>
@@ -56,6 +60,10 @@ export default function MyPage(){
             <button onClick={() =>goToDetails()}>Go To Details</button>
             <h2>Go Assignment 9</h2>
             <button onClick={() => goTo9()}>Go To Assignment 9</button>
+            <h2>Go Assignment 10</h2>
+            <button onClick={() => goTo10()}>Go To Assignment 10</button>
+            <h2>Go Assignment 11</h2>
+            <button onClick={() => goTo10()}>Go To Assignment 11</button>
         </div>
     )
 }
