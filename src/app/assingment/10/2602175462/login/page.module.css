@@ -34,16 +34,10 @@
     border: solid black 1px;
     padding: 0.5rem;
     border-radius: 16px;
-    margin-top: 8px;
 }
 
 .button:hover{
     cursor: pointer;
     background-color: black;
     color: white;
-}
-
-.errors{
-    color: red;
-    margin: 8px;
 }
