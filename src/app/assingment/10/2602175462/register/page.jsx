@@ -78,7 +78,7 @@ export default function RegisterPage() {
             await setDoc(doc(db, "users", userInfo.user.uid),{name, email})
             console.log(`firestore success`);
             console.log(userInfo);
-            alert(`Success, now go to login and login with your account`)
+            alert(`Success, now go to login and login with your account`);
         } catch (error){
             // can add some UI fallback
             console.log(error);
@@ -103,12 +103,12 @@ export default function RegisterPage() {
                     <p className={styles.errors}>{validateErrors.email}</p>
                 )}
                 <h3 style={{margin:'0'}}>Password</h3>
-                <input type="text" name='password' className={styles.input} value={password} onChange={(e)=>setPassword(e.target.value)}/>
+                <input type="password" name='password' className={styles.input} value={password} onChange={(e)=>setPassword(e.target.value)}/>
                 {validateErrors.password &&(
                     <p className={styles.errors}>{validateErrors.password}</p>
                 )}
                 <h3 style={{margin:'0'}}>Confirm Password</h3>
-                <input type="text" name='confirmPassword' className={styles.input} value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)}/> <br />
+                <input type="password" name='confirmPassword' className={styles.input} value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)}/> <br />
                 {validateErrors.confirmPassword &&(
                     <p className={styles.errors}>{validateErrors.confirmPassword}</p>
                 )}
