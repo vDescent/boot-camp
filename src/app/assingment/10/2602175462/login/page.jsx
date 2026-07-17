@@ -1,10 +1,13 @@
 'use client'
 import React, { useActionState, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { auth } from '../firebase/Init'
 import styles from "./page.module.css"
 import Link from 'next/link'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 
 export default function LoginPage() {
+    const router = useRouter();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState({
@@ -37,7 +40,15 @@ export default function LoginPage() {
 
         if(!isValid) return;
 
+        try{
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            console.log(`Sign in Success`);
 
+            router.push(`/assingment/10/2602175462`);
+        } catch (error) {
+            console.log(`Error ${error}`);
+        }
+        
 
 
     }
