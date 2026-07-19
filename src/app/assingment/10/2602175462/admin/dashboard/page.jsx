@@ -6,7 +6,7 @@ export default function page() {
   return (
     <ProtectedAdminRoute>
         <div>
-            <p>accessible only to users with the admin role</p>
+            <p>You're The Admin</p>
         </div>
     </ProtectedAdminRoute>
   )

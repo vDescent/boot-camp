@@ -37,7 +37,7 @@ export default function MyPage(){
     }
 
     function goTo10(){
-        router.push('assingment/10/2602175462');
+        router.push('assingment/11/2602175462');
     }
 
 
