@@ -64,7 +64,7 @@ export default function LoginPage() {
                         <p className={styles.errors}>{errors.email}</p>
                     )}
                     <h3 style={{margin:'0'}}>Password</h3>
-                    <input type="text" name='password' className={styles.input} value={password} onChange={(e)=>setPassword(e.target.value)}/>
+                    <input type="password" name='password' className={styles.input} value={password} onChange={(e)=>setPassword(e.target.value)}/>
                     {errors.password &&(
                         <p className={styles.errors}>{errors.password}</p>
                     )}

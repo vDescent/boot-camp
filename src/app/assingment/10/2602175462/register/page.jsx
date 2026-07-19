@@ -5,7 +5,7 @@ import styles from './page.module.css'
 import Link from 'next/link';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/Init';
-import { setDoc } from 'firebase/firestore';
+import { serverTimestamp, setDoc } from 'firebase/firestore';
 import { db } from '../firebase/Init';
 import { doc } from 'firebase/firestore';
 
@@ -75,7 +75,7 @@ export default function RegisterPage() {
 
         try{
             const userInfo = await createUserWithEmailAndPassword(auth, email, password);
-            await setDoc(doc(db, "users", userInfo.user.uid),{name, email})
+            await setDoc(doc(db, "users", userInfo.user.uid),{name, email, role:"user", createdAt: serverTimestamp()})
             console.log(`firestore success`);
             console.log(userInfo);
             alert(`Success, now go to login and login with your account`);
