@@ -1,11 +1,19 @@
 import React from 'react'
 import ProtectedRoute from './firebase/ProtectedRoute'
+import ThemeBtn from './components/ThemeBtn'
+import styles from "./page.module.css"
+import './globals.css'
+
 
 export default function page() {
   return (
     <ProtectedRoute>
-      <div>
-          <h1>Assignment 11</h1>
+      <div className={styles.container}>
+          <h1 className={styles.h1}>Task Management App</h1>
+          {/* fetch data yang ada di firestore sesuai pengguna */}
+          {/* btn add data */}
+          <button>Add New Tasks</button>
+          <ThemeBtn/>
       </div>
     </ProtectedRoute>
   )
